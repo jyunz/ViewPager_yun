@@ -15,27 +15,38 @@ class MainViewPagerAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm){
 
     override fun getItem(position: Int): Fragment {
 
-        if (position == 0) {
-            return NameFragment()
-        }
-        else if (position == 1) {
-            return MyInfoFragment()
-        }
-        else {
-            return GreetingsFragment()
+        return when(position) {
+            0 -> NameFragment()
+            1 -> MyInfoFragment()
+            else ->GreetingsFragment()
+
+//        if (position == 0) {
+//            return NameFragment()
+//        }
+//        else if (position == 1) {
+//            return MyInfoFragment()
+//        }
+//        else {
+//            return GreetingsFragment()
         }
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        if (position == 0) {
-            return "이름"
+
+        return when (position) {
+            0 -> "이름"
+            1 -> "내정보"
+            else -> "인사말"
         }
-        else if (position == 1) {
-            return "내 정보"
-        }
-        else {
-            return "인사말"
-        }
+//        if (position == 0) {
+//            return "이름"
+//        }
+//        else if (position == 1) {
+//            return "내 정보"
+//        }
+//        else {
+//            return "인사말"
+//        }
     }
 }
 //getItem : 각각의 position에 맞는 Fragment가 어떤 Fragment인지 명시해 주는 함수.
